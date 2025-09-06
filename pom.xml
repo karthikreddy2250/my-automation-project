@@ -1,0 +1,72 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.spg.ip</groupId>
+  <artifactId>my-automation-project</artifactId>
+  <packaging>jar</packaging>
+  <properties>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+  </properties>
+  <version>1.0-SNAPSHOT</version>
+  <name>my-automation-project</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+      <!-- Selenium -->
+      <dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-java</artifactId>
+        <version>4.23.0</version>
+      </dependency>
+
+      <!-- Cucumber Java -->
+      <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-java</artifactId>
+        <version>7.20.1</version>
+      </dependency>
+
+      <!-- Cucumber JUnit Platform Engine -->
+      <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-junit-platform-engine</artifactId>
+        <version>7.20.1</version>
+      </dependency>
+      <dependency>
+          <groupId>org.junit.jupiter</groupId>
+          <artifactId>junit-jupiter</artifactId>
+          <version>5.11.3</version>
+          <scope>test</scope>
+      </dependency>
+      <dependency>
+          <groupId>org.junit.jupiter</groupId>
+          <artifactId>junit-jupiter-api</artifactId>
+          <version>5.11.3</version>
+          <scope>test</scope>
+      </dependency>
+      <dependency>
+          <groupId>org.junit.platform</groupId>
+          <artifactId>junit-platform-suite</artifactId>
+          <version>1.11.3</version>
+          <scope>test</scope>
+      </dependency>
+<!--      <dependency>-->
+<!--          <groupId>org.junit.platform</groupId>-->
+<!--          <artifactId>junit-platform-suite-api</artifactId>-->
+<!--          <version>1.11.3</version>-->
+<!--          <scope>test</scope>-->
+<!--      </dependency>-->
+  </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <useModulePath>false</useModulePath>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
