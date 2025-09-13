@@ -19,7 +19,7 @@ pipeline {
         stage('Test'){
            steps{
                     echo 'Starting the tests..'
-                        sh 'mvn test -Dcucumber.filter.tags="@smoke'
+                        sh 'mvn test -Dcucumber.filter.tags="@smoke" '
                     echo 'Tests successful!'
                 }
 
