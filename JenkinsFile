@@ -2,18 +2,24 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone Repository') {
+        stage('Checkout') {
             steps {
-                // Clone your repo
                 git branch: 'master', url: 'https://github.com/karthikreddy2250/my-automation-project.git'
             }
         }
-
         stage('Build') {
-            steps {
-                // Example: if it's a Java + Maven project
-                sh 'mvn clean install'
-            }
+            echo 'Building the pipeline'
+                steps {
+                    sh 'mvn clean install -DskipTests=true'
+                }
+            echo 'Pipeline build successful'
+        }
+        stage('Test'){
+            echo 'Starting the tests'
+                steps{
+                    sh 'mvn test -Dcucumber.filter.tags="@smoke'
+                }
+            echo 'Tests successful'
         }
     }
 }
