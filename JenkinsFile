@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Build') {
                 steps {
-                    echo 'Building the pipeline..'
+                    echo 'Building the pipeline...'
                         sh 'mvn clean install -DskipTests=true'
                     echo 'Pipeline build successful!!'
                 }
