@@ -22,7 +22,21 @@ pipeline {
                         sh 'mvn test -Dcucumber.filter.tags="@smoke" '
                     echo 'Tests successful!'
                 }
+        }
+    }
 
+    post{
+        always{
+            echo 'Pipeline Run Finished!! Check cucumber reports for results.'
+            fileIncludePattern: '**/target/cucumber.json', jsonReportDirectory: 'target', sortingMethod: 'ALPHABETICAL'
+            publishHTML(target: [
+                reportName: 'Cucumber HTML Report',
+                reportDir: 'target/cucumber-reports',
+                reportFiles: 'cucumber-html-reports.html',
+                keepAll: true,
+                alwaysLinkToLastBuild: true,
+                allowMissing: false
+            ])
         }
     }
 }
