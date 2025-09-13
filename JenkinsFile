@@ -28,10 +28,9 @@ pipeline {
     post{
         always{
             echo 'Pipeline Run Finished!! Check cucumber reports for results.'
-            fileIncludePattern: '**/target/cucumber.json', jsonReportDirectory: 'target', sortingMethod: 'ALPHABETICAL'
             publishHTML(target: [
                 reportName: 'Cucumber HTML Report',
-                reportDir: 'target/cucumber-reports',
+                reportDir: 'target/',
                 reportFiles: 'cucumber-html-reports.html',
                 keepAll: true,
                 alwaysLinkToLastBuild: true,
