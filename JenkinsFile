@@ -4,22 +4,25 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+            echo 'Checking out..'
                 git branch: 'master', url: 'https://github.com/karthikreddy2250/my-automation-project.git'
             }
         }
         stage('Build') {
-            echo 'Building the pipeline'
                 steps {
-                    sh 'mvn clean install -DskipTests=true'
+                    echo 'Building the pipeline..'
+                        sh 'mvn clean install -DskipTests=true'
+                    echo 'Pipeline build successful!!'
                 }
-            echo 'Pipeline build successful'
+
         }
         stage('Test'){
-            echo 'Starting the tests'
-                steps{
-                    sh 'mvn test -Dcucumber.filter.tags="@smoke'
+           steps{
+                    echo 'Starting the tests..'
+                        sh 'mvn test -Dcucumber.filter.tags="@smoke'
+                    echo 'Tests successful!'
                 }
-            echo 'Tests successful'
+
         }
     }
 }
