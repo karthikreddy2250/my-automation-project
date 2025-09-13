@@ -28,6 +28,7 @@ pipeline {
     post{
         always{
             echo 'Pipeline Run Finished!! Check cucumber reports for results.'
+            cucumber fileIncludePattern: 'target/cucumber.json', jsonReportDirectory: 'target', sortingMethod: 'ALPHABETICAL'
             publishHTML(target: [
                 reportName: 'Cucumber HTML Report',
                 reportDir: 'target/',
